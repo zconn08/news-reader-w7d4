@@ -1,7 +1,7 @@
 NewsReader::Application.routes.draw do
   namespace :api do
     resources :feeds, only: [:index, :create, :show] do
-      resources :entries, only: [:index]
+      resources :entries, only: [:index, :destroy]
     end
   end
 

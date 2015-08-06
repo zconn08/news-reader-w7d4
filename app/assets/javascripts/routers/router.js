@@ -1,6 +1,7 @@
 NewsReader.Routers.Router = Backbone.Router.extend({
   routes: {
     "": "feedIndex",
+    "feeds/new": "feedNew",
     "feeds/:id": "feedShow"
   },
 
@@ -19,6 +20,11 @@ NewsReader.Routers.Router = Backbone.Router.extend({
     var view = new NewsReader.Views.FeedShow({
       model: this.collection.getOrFetch(id)
     });
+    this._swapView(view);
+  },
+
+  feedNew: function(){
+    var view = new NewsReader.Views.Form({ collection: this.collection });
     this._swapView(view);
   },
 

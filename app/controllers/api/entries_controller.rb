@@ -4,6 +4,12 @@ class Api::EntriesController < ApplicationController
     render :json => feed.entries
   end
 
+  def destroy
+    entry = Entry.find(params[:id])
+    entry.destroy
+    render :json => entry
+  end
+
   private
   def entry_params
     params.
