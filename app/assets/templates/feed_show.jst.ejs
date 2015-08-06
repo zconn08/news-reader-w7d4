@@ -1,4 +1,7 @@
 <h1><%= feed.escape("title") %></h1>
+<% if (Object.keys(feed.attributes).indexOf("author") !== -1) { %>
+  <h2>Feed added by <%= feed.escape("author") %></h2>
+<% } %>
 <ul class="entries">
 </ul>
 

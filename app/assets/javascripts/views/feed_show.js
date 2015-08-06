@@ -20,7 +20,6 @@ NewsReader.Views.FeedShow = Backbone.View.extend({
       var entryView = new NewsReader.Views.Entry({ model: entry });
       this.$('.entries').append(entryView.render().$el);
     }.bind(this));
-
     return this;
   },
 });

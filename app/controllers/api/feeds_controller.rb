@@ -4,11 +4,17 @@ class Api::FeedsController < ApplicationController
   end
 
   def show
-    render :json => Feed.find(params[:id]), include: :latest_entries
+    @feed = Feed.find(params[:id])
+    render 'show'
+
+
+
+    #render :json => Feed.find(params[:id]), include: :latest_entries
   end
 
   def create
-    feed = Feed.find_or_create_by_url(feed_params[:url])
+    id = current_user ? current_user.id : nil
+    feed = Feed.find_or_create_by_url(feed_params[:url], id)
     if feed
       render :json => feed
     else
