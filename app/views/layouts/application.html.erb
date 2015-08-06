@@ -8,6 +8,12 @@
 </head>
 <body>
 
+<% if current_user %>
+  Welcome <%= current_user.username %>! <%= button_to "Logout", session_url, method: :delete %>
+<% else %>
+  <%= link_to "Log In", new_session_url %> | <%= link_to "Sign Up", new_user_url %>
+<% end %>
+
 <%= yield %>
 
 <%= link_to "Back to Index", "" %>
