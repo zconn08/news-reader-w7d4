@@ -6,10 +6,10 @@ class Api::FeedsController < ApplicationController
   def show
     @feed = Feed.find(params[:id])
     render 'show'
+  end
 
-
-
-    #render :json => Feed.find(params[:id]), include: :latest_entries
+  def favorites
+    render json: current_user.favorite_feeds
   end
 
   def create

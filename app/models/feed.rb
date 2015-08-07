@@ -3,6 +3,9 @@ require 'open-uri'
 class Feed < ActiveRecord::Base
   has_many :entries, :dependent => :destroy
   belongs_to :user
+  has_many :favorites, :dependent => :destroy
+  has_many :favoriters, through: :favorites, source: :user
+
   def self.find_or_create_by_url(url, user_id)
     feed = Feed.find_by_url(url)
     return feed if feed

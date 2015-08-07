@@ -7,9 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<% if flash[:errors] %>
+  <ul>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <% if current_user %>
-  Welcome <%= current_user.username %>! <%= button_to "Logout", session_url, method: :delete %>
+  Welcome <%= current_user.username %>!
+  <%= link_to "Your Favorite Feeds", '#feeds/favorites' %>
+  <%= button_to "Logout", session_url, method: :delete %>
 <% else %>
   <%= link_to "Log In", new_session_url %> | <%= link_to "Sign Up", new_user_url %>
 <% end %>

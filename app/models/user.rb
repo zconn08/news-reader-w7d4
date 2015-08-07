@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   after_initialize :ensure_session_token
 
   has_many :feeds, dependent: :destroy
+  has_many :favorites, :dependent => :destroy
+  has_many :favorite_feeds, through: :favorites, source: :feed
 
   attr_reader :password
 

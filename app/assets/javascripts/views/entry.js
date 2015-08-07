@@ -2,7 +2,7 @@ NewsReader.Views.Entry = Backbone.View.extend({
   template: JST['entry'],
   tagName: 'li',
   events: {
-    "click .delete-entry" : "deleteEntry"
+    "click .delete-entry" : "remove"
   },
 
   render: function () {
@@ -10,8 +10,8 @@ NewsReader.Views.Entry = Backbone.View.extend({
     return this;
   },
 
-  deleteEntry: function(){
+  remove: function () {
     this.model.destroy();
-    this.remove();
+    Backbone.View.prototype.remove.call(this);
   }
 });
