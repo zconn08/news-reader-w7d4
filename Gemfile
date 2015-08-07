@@ -12,6 +12,7 @@ gem 'simple-rss'
 gem 'backbone-on-rails'
 gem 'ejs'
 gem 'serialize_json-rails'
+gem 'bootstrap-sass'
 
 group :doc do
   gem 'sdoc', require: false

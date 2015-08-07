@@ -16,6 +16,7 @@
 //= require backbone
 //= require news_reader
 //= require serialize_json
+//= require bootstrap
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./utils

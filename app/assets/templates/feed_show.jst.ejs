@@ -2,7 +2,10 @@
 <% if (Object.keys(feed.attributes).indexOf("author") !== -1) { %>
   <h2>Feed added by <%= feed.escape("author") %></h2>
 <% } %>
-<ul class="entries">
-</ul>
+<table class="table table-striped">
+  <thead><tr><td><strong>Links</strong></td><td></td></tr></thead>
+  <tbody class="entries">
+  </tbody>
+</table>
 
 <button class="refresh">Refresh</button>

@@ -1,6 +1,6 @@
 NewsReader.Views.Entry = Backbone.View.extend({
   template: JST['entry'],
-  tagName: 'li',
+  tagName: 'tr',
   events: {
     "click .delete-entry" : "remove"
   },
